@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html ng-app="angularModule">
+<head>
+	<title>Angular</title>
+</head>
+<link rel="stylesheet" type="text/css" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+<body>
+<div ng-controller="IndexController">
+
+<form ng-submit="postData()">
+<!--<input type="text" ng-model="username">
+<input type="submit" value="Submit">
+{{retMessage}}
+<ol>
+	<li ng-repeat="language in languages">{{language.name}} - {{language.version}}</li>
+</ol>-->
+</form>
+</div>
+<div class="container" ng-controller="IndexController">
+	<div class="row">
+		<ul class="thumbnails list-unstyled">
+			<li class="col-md-3" ng-repeat="product in products">
+				<div class="thumbnail" style="padding: 0">
+					<div style="padding:4px">
+						<img alt="300x200" style="width:100%" src="{{product.product_image}}">
+					</div>
+					<div class="caption">
+						<h2>{{product.product_name}}</h2>
+						<p>{{product.product_description}}</p>
+						<h3>{{product.product_price}}</h3>
+						<button class="btn btn-primary btn-sm" ng-click="addToCart($index)" ng-disabled="product.disable">Add to Cart</button>
+					</div>
+				</div>
+			</li>
+		</ul>
+		<div class="caption">
+			<h2>CART</h2>
+			<ol>
+				<li ng-repeat="item in cart">{{item.product_name}} -{{item.product_price}}  <button class="btn btnlink" ng-click="removeFromCart($index)">X</button>
+				</li>
+			</ol>
+			<h2>Total {{getCartTotal()}}</h2>
+		</div>
+	</div>
+
+</div>
+
+<!--<logo type="I"></logo>-->
+<script type="text/javascript" src="../bower_components/angular/angular.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
+<script type="text/javascript" src="js/controllers/index-controller.js"></script>
+<script type="text/javascript" src="js/directives/logo.js"></script>
+</body>
+</html>
